@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "cf91dd14-4dce-409a-83c3-c975120da390",
+		"name": "API Film",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ajouter un film",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3629fe5-9e75-4daa-8f64-a4209bc09b55",
+						"exec": [
+							"pm.test(\"Le status code est 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La réponse n'est pas null\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.not.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id est de type number\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"titre est de type string\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.titre).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"description est de type string\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"acteurs est de type array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.acteurs).to.be.a('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/film",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"film"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtenir un film par ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e96dbd0-1bf4-4124-a13d-780690723516",
+						"exec": [
+							"pm.test(\"Le status code est 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La réponse n'est pas null\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.not.null;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"id est de type number\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.be.a('number');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"titre est de type string\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.titre).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"description est de type string\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"acteurs est de type array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.acteurs).to.be.a('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/film/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"film",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
